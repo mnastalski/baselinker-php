@@ -40,6 +40,19 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
+    public function setOrderPayment(int $orderId, float $amount): Response
+    {
+        return new Response(
+            $this->post('setOrderStatus', [
+                'order_id' => $orderId,
+                'payment_done' => $amount,
+            ])
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function setOrderStatus(int $orderId, int $statusId): Response
     {
         return new Response(

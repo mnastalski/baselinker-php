@@ -25,6 +25,13 @@ interface OrdersInterface
 
     /**
      * @param int $orderId
+     * @param float $amount
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function setOrderPayment(int $orderId, float $amount): Response;
+
+    /**
+     * @param int $orderId
      * @param int $statusId
      * @return \Baselinker\Api\Response\Response
      */
