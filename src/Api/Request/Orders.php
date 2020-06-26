@@ -36,4 +36,17 @@ class Orders extends Client implements OrdersInterface
             $this->post('getOrderStatusList')
         );
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function setOrderStatus(int $orderId, int $statusId): Response
+    {
+        return new Response(
+            $this->post('setOrderStatus', [
+                'order_id' => $orderId,
+                'status_id' => $statusId,
+            ])
+        );
+    }
 }

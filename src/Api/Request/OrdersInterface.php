@@ -22,4 +22,11 @@ interface OrdersInterface
      * @return \Baselinker\Api\Response\Response
      */
     public function getOrderStatusList(): Response;
+
+    /**
+     * @param int $orderId
+     * @param int $statusId
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function setOrderStatus(int $orderId, int $statusId): Response;
 }
