@@ -86,8 +86,8 @@ class Response
      */
     private function hasError(): bool
     {
-        $data = $this->toArray();
+        $status = $this->getParameter('status');
 
-        return strtolower($data['status']) !== 'success';
+        return strtolower($status !== 'success');
     }
 }
