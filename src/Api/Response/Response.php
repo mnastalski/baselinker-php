@@ -88,6 +88,6 @@ class Response
     {
         $status = $this->getParameter('status');
 
-        return strtolower($status !== 'success');
+        return strtolower($status) !== 'success';
     }
 }
