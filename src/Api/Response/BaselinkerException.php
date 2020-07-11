@@ -10,17 +10,31 @@ class BaselinkerException extends Exception implements Throwable
     /**
      * @var string
      */
+    private $responseMessage;
+
+    /**
+     * @var string
+     */
     private $responseCode;
 
     /**
-     * @param string $message
+     * @param string $responseMessage
      * @param string $responseCode
      */
-    public function __construct(string $message, string $responseCode)
+    public function __construct(string $responseMessage, string $responseCode)
     {
-        parent::__construct($message);
+        parent::__construct("[{$responseCode}] {$responseMessage}");
 
+        $this->responseMessage = $responseMessage;
         $this->responseCode = $responseCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function responseMessage(): string
+    {
+        return $this->responseMessage;
     }
 
     /**
