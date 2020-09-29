@@ -1,6 +1,9 @@
 {
     "name": "mnastalski/baselinker-php",
     "description": "BaseLinker PHP library",
+    "keywords": [
+        "baselinker"
+    ],
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/mnastalski/baselinker-php",
