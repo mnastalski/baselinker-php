@@ -2,6 +2,8 @@
 
 namespace Baselinker;
 
+use Baselinker\Api\Request\CourierShipments;
+use Baselinker\Api\Request\CourierShipmentsInterface;
 use Baselinker\Api\Request\ExternalStorages;
 use Baselinker\Api\Request\ExternalStoragesInterface;
 use Baselinker\Api\Request\Orders;
@@ -46,5 +48,13 @@ class Baselinker implements BaselinkerInterface
     public function orders(): OrdersInterface
     {
         return new Orders($this->config);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function courierShipments(): CourierShipmentsInterface
+    {
+        return new CourierShipments($this->config);
     }
 }
