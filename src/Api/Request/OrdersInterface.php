@@ -86,11 +86,10 @@ interface OrdersInterface
     public function getNewReceipts(int $seriesId): Response;
 
     /**
-     * @param int|null $receiptId
-     * @param int|null $orderId
+     * @param array $data
      * @return \Baselinker\Api\Response\Response
      */
-    public function getReceipt(?int $receiptId = null, ?int $orderId = null): Response;
+    public function getReceipt(array $data): Response;
 
     /**
      * @param array $data

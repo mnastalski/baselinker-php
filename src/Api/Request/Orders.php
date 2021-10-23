@@ -158,13 +158,10 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
-    public function getReceipt(?int $receiptId = null, ?int $orderId = null): Response
+    public function getReceipt(array $data): Response
     {
         return new Response(
-            $this->post('getReceipt', [
-                'receipt_id' => $receiptId,
-                'order_id' => $orderId,
-            ])
+            $this->post('getReceipt', $data)
         );
     }
 
