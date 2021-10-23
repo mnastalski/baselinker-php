@@ -4,6 +4,8 @@ namespace Baselinker;
 
 use Baselinker\Api\Request\Orders;
 use Baselinker\Api\Request\OrdersInterface;
+use Baselinker\Api\Request\ProductCatalog;
+use Baselinker\Api\Request\ProductCatalogInterface;
 
 class Baselinker implements BaselinkerInterface
 {
@@ -18,6 +20,14 @@ class Baselinker implements BaselinkerInterface
     public function __construct(array $parameters)
     {
         $this->config = new Config($parameters);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function productCatalog(): ProductCatalogInterface
+    {
+        return new ProductCatalog($this->config);
     }
 
     /**
