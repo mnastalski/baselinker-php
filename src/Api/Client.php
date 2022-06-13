@@ -41,8 +41,10 @@ class Client
     protected function post(string $function, array $parameters = []): ResponseInterface
     {
         return $this->client()->post('connector.php', [
-            'form_params' => [
-                'token' => $this->config->getToken(),
+            RequestOptions::HEADERS => [
+                'X-BLToken' => $this->config->getToken(),
+            ],
+            RequestOptions::FORM_PARAMS => [
                 'method' => $function,
                 'parameters' => json_encode($parameters),
             ],
