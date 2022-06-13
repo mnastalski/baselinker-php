@@ -5,6 +5,7 @@ namespace Baselinker\Api;
 use Baselinker\Config;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 
 class Client
@@ -56,6 +57,8 @@ class Client
         if (!$this->client) {
             $this->client = new GuzzleClient([
                 'base_uri' => $this->getApiUrl(),
+                RequestOptions::CONNECT_TIMEOUT => 10,
+                RequestOptions::TIMEOUT => 30,
             ]);
         }
 
