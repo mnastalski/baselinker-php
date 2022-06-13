@@ -211,7 +211,7 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
-    public function setOrderPayment(int $orderId, float $paymentDone, int $paymentDate, string $paymentComment, ?string $externalPaymentId = null): Response
+    public function setOrderPayment(int $orderId, float $paymentDone, ?int $paymentDate = null, ?string $paymentComment = null, ?string $externalPaymentId = null): Response
     {
         return new Response(
             $this->post('setOrderPayment', [
