@@ -121,9 +121,10 @@ interface OrdersInterface
      * @param float $paymentDone
      * @param int $paymentDate
      * @param string $paymentComment
+     * @param string|null $externalPaymentId
      * @return \Baselinker\Api\Response\Response
      */
-    public function setOrderPayment(int $orderId, float $paymentDone, int $paymentDate, string $paymentComment): Response;
+    public function setOrderPayment(int $orderId, float $paymentDone, int $paymentDate, string $paymentComment, ?string $externalPaymentId = null): Response;
 
     /**
      * @param int $orderId
