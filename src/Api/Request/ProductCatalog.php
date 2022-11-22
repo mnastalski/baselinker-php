@@ -302,7 +302,7 @@ class ProductCatalog extends Client implements ProductCatalogInterface
     public function deleteInventoryProduct(int $productId): Response
     {
         return new Response(
-            $this->post('addInventoryProduct', [
+            $this->post('deleteInventoryProduct', [
                 'product_id' => $productId,
             ])
         );
