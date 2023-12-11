@@ -265,4 +265,16 @@ class Orders extends Client implements OrdersInterface
             ])
         );
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getInvoiceFile(int $invoiceId): Response
+    {
+        return new Response(
+            $this->post('getInvoiceFile', [
+                'invoice_id' => $invoiceId,
+            ])
+        );
+    }
 }
