@@ -149,4 +149,10 @@ interface OrdersInterface
      * @return \Baselinker\Api\Response\Response
      */
     public function addOrderInvoiceFile(int $invoiceId, string $file, string $externalInvoiceNumber): Response;
+
+    /**
+     * @param int $invoiceId
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function getInvoiceFile(int $invoiceId): Response;
 }
