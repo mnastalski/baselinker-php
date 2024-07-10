@@ -6,6 +6,8 @@ use Baselinker\Api\Request\CourierShipments;
 use Baselinker\Api\Request\CourierShipmentsInterface;
 use Baselinker\Api\Request\ExternalStorages;
 use Baselinker\Api\Request\ExternalStoragesInterface;
+use Baselinker\Api\Request\OrderReturns;
+use Baselinker\Api\Request\OrderReturnsInterface;
 use Baselinker\Api\Request\Orders;
 use Baselinker\Api\Request\OrdersInterface;
 use Baselinker\Api\Request\ProductCatalog;
@@ -48,6 +50,14 @@ class Baselinker implements BaselinkerInterface
     public function orders(): OrdersInterface
     {
         return new Orders($this->config);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function orderReturns(): OrderReturnsInterface
+    {
+        return new OrderReturns($this->config);
     }
 
     /**
