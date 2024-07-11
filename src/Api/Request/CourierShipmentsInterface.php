@@ -21,9 +21,10 @@ interface CourierShipmentsInterface
      * @param string $courierCode
      * @param string $packageNumber
      * @param int $pickupDate
+     * @param bool $returnShipment
      * @return \Baselinker\Api\Response\Response
      */
-    public function createPackageManual(int $orderId, string $courierCode, string $packageNumber, int $pickupDate): Response;
+    public function createPackageManual(int $orderId, string $courierCode, string $packageNumber, int $pickupDate, bool $returnShipment = false): Response;
 
     /**
      * @return \Baselinker\Api\Response\Response
