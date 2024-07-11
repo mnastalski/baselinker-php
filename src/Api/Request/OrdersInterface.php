@@ -89,6 +89,13 @@ interface OrdersInterface
     public function getOrderPaymentsHistory(int $orderId, bool $showFullHistory = false): Response;
 
     /**
+     * @param int $orderId
+     * @param int|null $actionType
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function getOrderPickPackHistory(int $orderId, ?int $actionType = null): Response;
+
+    /**
      * @param int $seriesId
      * @return \Baselinker\Api\Response\Response
      */

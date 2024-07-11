@@ -158,6 +158,19 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
+    public function getOrderPickPackHistory(int $orderId, ?int $actionType = null): Response
+    {
+        return new Response(
+            $this->post('getOrderPickPackHistory', [
+                'order_id' => $orderId,
+                'action_type' => $actionType,
+            ])
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getNewReceipts(int $seriesId): Response
     {
         return new Response(
