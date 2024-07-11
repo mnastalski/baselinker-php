@@ -32,10 +32,19 @@ interface OrdersInterface
     public function getOrders(array $data): Response;
 
     /**
+     * @deprecated 0.6.0
+     * @use \Baselinker\Api\Request\OrdersInterface::getOrderTransactionData
+     *
      * @param int $orderId
      * @return \Baselinker\Api\Response\Response
      */
     public function getOrderTransactionDetails(int $orderId): Response;
+
+    /**
+     * @param int $orderId
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function getOrderTransactionData(int $orderId): Response;
 
     /**
      * @param string $email

@@ -66,6 +66,18 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
+    public function getOrderTransactionData(int $orderId): Response
+    {
+        return new Response(
+            $this->post('getOrderTransactionData', [
+                'order_id' => $orderId,
+            ])
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getOrdersByEmail(string $email): Response
     {
         return new Response(
