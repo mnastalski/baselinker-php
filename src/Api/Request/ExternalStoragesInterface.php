@@ -29,7 +29,7 @@ interface ExternalStoragesInterface
      * @param array $filters
      * @return \Baselinker\Api\Response\Response
      */
-    public function getExternalStorageProductsList(string $storageId, array $filters = []): Response;
+    public function getExternalStorageProductsList(string $storageId, array $filters = [], ?int $page = null): Response;
 
     /**
      * @param string $storageId

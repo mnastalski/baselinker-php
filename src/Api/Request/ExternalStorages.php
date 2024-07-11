@@ -46,12 +46,13 @@ class ExternalStorages extends Client implements ExternalStoragesInterface
     /**
      * @inheritDoc
      */
-    public function getExternalStorageProductsList(string $storageId, array $filters = []): Response
+    public function getExternalStorageProductsList(string $storageId, array $filters = [], ?int $page = null): Response
     {
         return new Response(
             $this->post('getExternalStorageProductsList', [
                 'storage_id' => $storageId,
                 'filters' => $filters,
+                'page' => $page,
             ])
         );
     }
