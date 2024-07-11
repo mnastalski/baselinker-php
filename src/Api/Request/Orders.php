@@ -266,7 +266,7 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
-    public function setOrderReceipt(int $receiptId, string $receiptNr, int $date, bool $printerError = false): Response
+    public function setOrderReceipt(int $receiptId, string $receiptNr, int $date, bool $printerError = false, ?string $printerName = null): Response
     {
         return new Response(
             $this->post('setOrderReceipt', [
@@ -274,6 +274,7 @@ class Orders extends Client implements OrdersInterface
                 'receipt_nr' => $receiptNr,
                 'date' => $date,
                 'printer_error' => $printerError,
+                'printer_name' => $printerName,
             ])
         );
     }
