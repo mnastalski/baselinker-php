@@ -102,12 +102,13 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
-    public function addInvoice(int $orderId, int $seriesId): Response
+    public function addInvoice(int $orderId, int $seriesId, $vatRate = null): Response
     {
         return new Response(
             $this->post('addInvoice', [
                 'order_id' => $orderId,
                 'series_id' => $seriesId,
+                'vat_rate' => $vatRate,
             ])
         );
     }
