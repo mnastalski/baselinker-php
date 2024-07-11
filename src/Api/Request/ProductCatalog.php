@@ -311,12 +311,13 @@ class ProductCatalog extends Client implements ProductCatalogInterface
     /**
      * @inheritDoc
      */
-    public function getInventoryProductsData(int $inventoryId, array $products = []): Response
+    public function getInventoryProductsData(int $inventoryId, array $products = [], ?bool $includeErpUnits = null): Response
     {
         return new Response(
             $this->post('getInventoryProductsData', [
                 'inventory_id' => $inventoryId,
                 'products' => $products,
+                'include_erp_units' => $includeErpUnits,
             ])
         );
     }
