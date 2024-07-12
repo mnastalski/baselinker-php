@@ -170,9 +170,10 @@ interface ProductCatalogInterface
     /**
      * @param int $inventoryId
      * @param array $products
+     * @param bool|null $includeErpUnits
      * @return \Baselinker\Api\Response\Response
      */
-    public function getInventoryProductsData(int $inventoryId, array $products = []): Response;
+    public function getInventoryProductsData(int $inventoryId, array $products = [], ?bool $includeErpUnits = null): Response;
 
     /**
      * @param int $inventoryId

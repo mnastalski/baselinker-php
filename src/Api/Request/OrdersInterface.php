@@ -61,9 +61,10 @@ interface OrdersInterface
     /**
      * @param int $orderId
      * @param int $seriesId
+     * @param string|int|float|null $vatRate
      * @return \Baselinker\Api\Response\Response
      */
-    public function addInvoice(int $orderId, int $seriesId): Response;
+    public function addInvoice(int $orderId, int $seriesId, $vatRate = null): Response;
 
     /**
      * @param array $data
@@ -154,9 +155,10 @@ interface OrdersInterface
      * @param string $receiptNr
      * @param int $date
      * @param bool $printerError
+     * @param string|null $printerName
      * @return \Baselinker\Api\Response\Response
      */
-    public function setOrderReceipt(int $receiptId, string $receiptNr, int $date, bool $printerError = false): Response;
+    public function setOrderReceipt(int $receiptId, string $receiptNr, int $date, bool $printerError = false, ?string $printerName = null): Response;
 
     /**
      * @param int $invoiceId

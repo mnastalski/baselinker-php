@@ -26,7 +26,7 @@ class CourierShipments extends Client implements CourierShipmentsInterface
     /**
      * @inheritDoc
      */
-    public function createPackageManual(int $orderId, string $courierCode, string $packageNumber, int $pickupDate): Response
+    public function createPackageManual(int $orderId, string $courierCode, string $packageNumber, int $pickupDate, bool $returnShipment = false): Response
     {
         return new Response(
             $this->post('createPackageManual', [
@@ -34,6 +34,7 @@ class CourierShipments extends Client implements CourierShipmentsInterface
                 'courier_code' => $courierCode,
                 'package_number' => $packageNumber,
                 'pickup_date' => $pickupDate,
+                'return_shipment' => $returnShipment,
             ])
         );
     }
