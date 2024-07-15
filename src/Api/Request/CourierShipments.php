@@ -164,4 +164,16 @@ class CourierShipments extends Client implements CourierShipmentsInterface
             $this->post('requestParcelPickup', $data)
         );
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRequestParcelPickupFields(string $courierCode): Response
+    {
+        return new Response(
+            $this->post('getRequestParcelPickupFields', [
+                'courier_code' => $courierCode,
+            ])
+        );
+    }
 }

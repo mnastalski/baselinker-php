@@ -96,4 +96,10 @@ interface CourierShipmentsInterface
      * @return mixed
      */
     public function requestParcelPickup(string $courierCode, array $data, int $accountId, array $fields = []): Response;
+
+    /**
+     * @param string $courierCode
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function getRequestParcelPickupFields(string $courierCode): Response;
 }
