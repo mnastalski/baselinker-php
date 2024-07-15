@@ -156,6 +156,13 @@ interface OrdersInterface
     public function setOrderStatus(int $orderId, int $statusId): Response;
 
     /**
+     * @param array|int[] $orderIds
+     * @param int $statusId
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function setOrderStatuses(array $orderIds, int $statusId): Response;
+
+    /**
      * @param int $receiptId
      * @param string $receiptNr
      * @param int $date

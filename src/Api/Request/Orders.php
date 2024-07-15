@@ -276,6 +276,19 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
+    public function setOrderStatuses(array $orderIds, int $statusId): Response
+    {
+        return new Response(
+            $this->post('setOrderStatuses', [
+                'order_ids' => $orderIds,
+                'status_id' => $statusId,
+            ])
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function setOrderReceipt(int $receiptId, string $receiptNr, int $date, bool $printerError = false, ?string $printerName = null): Response
     {
         return new Response(
