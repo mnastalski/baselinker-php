@@ -26,6 +26,11 @@ interface OrdersInterface
     public function getOrderSources(): Response;
 
     /**
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function getOrderExtraFields(): Response;
+
+    /**
      * @param array $data
      * @return \Baselinker\Api\Response\Response
      */

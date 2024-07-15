@@ -44,6 +44,16 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
+    public function getOrderExtraFields(): Response
+    {
+        return new Response(
+            $this->post('getOrderExtraFields')
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getOrders(array $data): Response
     {
         return new Response(
