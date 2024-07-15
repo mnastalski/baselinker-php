@@ -61,6 +61,14 @@ interface CourierShipmentsInterface
     public function getLabel(string $courierCode, array $data): Response;
 
     /**
+     * @param string $courierCode
+     * @param array $data
+     * @param int $accountId
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function getProtocol(string $courierCode, array $data, int $accountId): Response;
+
+    /**
      * @param int $orderId
      * @return \Baselinker\Api\Response\Response
      */

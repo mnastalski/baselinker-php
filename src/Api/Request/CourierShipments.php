@@ -104,6 +104,19 @@ class CourierShipments extends Client implements CourierShipmentsInterface
     /**
      * @inheritDoc
      */
+    public function getProtocol(string $courierCode, array $data, int $accountId): Response
+    {
+        $data['courier_code'] = $courierCode;
+        $data['account_id'] = $accountId;
+
+        return new Response(
+            $this->post('getProtocol', $data)
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getOrderPackages(int $orderId): Response
     {
         return new Response(
