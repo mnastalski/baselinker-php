@@ -87,4 +87,13 @@ interface CourierShipmentsInterface
      * @return \Baselinker\Api\Response\Response
      */
     public function deleteCourierPackage(string $courierCode, array $data, bool $forceDelete = false): Response;
+
+    /**
+     * @param string $courierCode
+     * @param array $data
+     * @param int $accountId
+     * @param array $fields
+     * @return mixed
+     */
+    public function requestParcelPickup(string $courierCode, array $data, int $accountId, array $fields = []): Response;
 }

@@ -150,4 +150,18 @@ class CourierShipments extends Client implements CourierShipmentsInterface
             $this->post('deleteCourierPackage', $data)
         );
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function requestParcelPickup(string $courierCode, array $data, int $accountId, array $fields = []): Response
+    {
+        $data['courier_code'] = $courierCode;
+        $data['account_id'] = $accountId;
+        $data['fields'] = $fields;
+
+        return new Response(
+            $this->post('requestParcelPickup', $data)
+        );
+    }
 }
