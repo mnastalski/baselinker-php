@@ -341,4 +341,17 @@ class Orders extends Client implements OrdersInterface
             ])
         );
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function runOrderMacroTrigger(int $orderId, int $triggerId): Response
+    {
+        return new Response(
+            $this->post('runOrderMacroTrigger', [
+                'order_id' => $orderId,
+                'trigger_id' => $triggerId,
+            ])
+        );
+    }
 }

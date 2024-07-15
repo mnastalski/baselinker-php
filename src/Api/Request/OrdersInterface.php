@@ -193,4 +193,11 @@ interface OrdersInterface
      * @return \Baselinker\Api\Response\Response
      */
     public function getInvoiceFile(int $invoiceId): Response;
+
+    /**
+     * @param int $orderId
+     * @param int $triggerId
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function runOrderMacroTrigger(int $orderId, int $triggerId): Response;
 }
