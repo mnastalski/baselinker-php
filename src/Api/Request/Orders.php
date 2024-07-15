@@ -319,6 +319,20 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
+    public function addOrderReceiptFile(int $receiptId, string $file, string $externalReceiptNumber): Response
+    {
+        return new Response(
+            $this->post('addOrderInvoiceFile', [
+                'receipt_id' => $receiptId,
+                'file' => $file,
+                'external_receipt_number' => $externalReceiptNumber,
+            ])
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getInvoiceFile(int $invoiceId): Response
     {
         return new Response(
