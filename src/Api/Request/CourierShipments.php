@@ -104,6 +104,19 @@ class CourierShipments extends Client implements CourierShipmentsInterface
     /**
      * @inheritDoc
      */
+    public function getProtocol(string $courierCode, array $data, int $accountId): Response
+    {
+        $data['courier_code'] = $courierCode;
+        $data['account_id'] = $accountId;
+
+        return new Response(
+            $this->post('getProtocol', $data)
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getOrderPackages(int $orderId): Response
     {
         return new Response(
@@ -135,6 +148,32 @@ class CourierShipments extends Client implements CourierShipmentsInterface
 
         return new Response(
             $this->post('deleteCourierPackage', $data)
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function requestParcelPickup(string $courierCode, array $data, int $accountId, array $fields = []): Response
+    {
+        $data['courier_code'] = $courierCode;
+        $data['account_id'] = $accountId;
+        $data['fields'] = $fields;
+
+        return new Response(
+            $this->post('requestParcelPickup', $data)
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRequestParcelPickupFields(string $courierCode): Response
+    {
+        return new Response(
+            $this->post('getRequestParcelPickupFields', [
+                'courier_code' => $courierCode,
+            ])
         );
     }
 }

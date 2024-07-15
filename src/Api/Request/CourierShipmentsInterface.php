@@ -61,6 +61,14 @@ interface CourierShipmentsInterface
     public function getLabel(string $courierCode, array $data): Response;
 
     /**
+     * @param string $courierCode
+     * @param array $data
+     * @param int $accountId
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function getProtocol(string $courierCode, array $data, int $accountId): Response;
+
+    /**
      * @param int $orderId
      * @return \Baselinker\Api\Response\Response
      */
@@ -79,4 +87,19 @@ interface CourierShipmentsInterface
      * @return \Baselinker\Api\Response\Response
      */
     public function deleteCourierPackage(string $courierCode, array $data, bool $forceDelete = false): Response;
+
+    /**
+     * @param string $courierCode
+     * @param array $data
+     * @param int $accountId
+     * @param array $fields
+     * @return mixed
+     */
+    public function requestParcelPickup(string $courierCode, array $data, int $accountId, array $fields = []): Response;
+
+    /**
+     * @param string $courierCode
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function getRequestParcelPickupFields(string $courierCode): Response;
 }

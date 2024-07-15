@@ -216,4 +216,11 @@ interface ProductCatalogInterface
      * @return \Baselinker\Api\Response\Response
      */
     public function getInventoryProductLogs(int $productId, array $filters = []): Response;
+
+    /**
+     * @param int $productId
+     * @param int $triggerId
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function runProductMacroTrigger(int $productId, int $triggerId): Response;
 }

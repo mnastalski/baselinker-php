@@ -44,6 +44,16 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
+    public function getOrderExtraFields(): Response
+    {
+        return new Response(
+            $this->post('getOrderExtraFields')
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getOrders(array $data): Response
     {
         return new Response(
@@ -266,6 +276,19 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
+    public function setOrderStatuses(array $orderIds, int $statusId): Response
+    {
+        return new Response(
+            $this->post('setOrderStatuses', [
+                'order_ids' => $orderIds,
+                'status_id' => $statusId,
+            ])
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function setOrderReceipt(int $receiptId, string $receiptNr, int $date, bool $printerError = false, ?string $printerName = null): Response
     {
         return new Response(
@@ -296,11 +319,38 @@ class Orders extends Client implements OrdersInterface
     /**
      * @inheritDoc
      */
+    public function addOrderReceiptFile(int $receiptId, string $file, string $externalReceiptNumber): Response
+    {
+        return new Response(
+            $this->post('addOrderInvoiceFile', [
+                'receipt_id' => $receiptId,
+                'file' => $file,
+                'external_receipt_number' => $externalReceiptNumber,
+            ])
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getInvoiceFile(int $invoiceId): Response
     {
         return new Response(
             $this->post('getInvoiceFile', [
                 'invoice_id' => $invoiceId,
+            ])
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function runOrderMacroTrigger(int $orderId, int $triggerId): Response
+    {
+        return new Response(
+            $this->post('runOrderMacroTrigger', [
+                'order_id' => $orderId,
+                'trigger_id' => $triggerId,
             ])
         );
     }

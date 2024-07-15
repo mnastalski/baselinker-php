@@ -397,4 +397,17 @@ class ProductCatalog extends Client implements ProductCatalogInterface
             $this->post('getInventoryProductLogs', $filters)
         );
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function runProductMacroTrigger(int $productId, int $triggerId): Response
+    {
+        return new Response(
+            $this->post('runProductMacroTrigger', [
+                'product_id' => $productId,
+                'trigger_id' => $triggerId,
+            ])
+        );
+    }
 }

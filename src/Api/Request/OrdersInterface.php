@@ -26,6 +26,11 @@ interface OrdersInterface
     public function getOrderSources(): Response;
 
     /**
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function getOrderExtraFields(): Response;
+
+    /**
      * @param array $data
      * @return \Baselinker\Api\Response\Response
      */
@@ -151,6 +156,13 @@ interface OrdersInterface
     public function setOrderStatus(int $orderId, int $statusId): Response;
 
     /**
+     * @param array|int[] $orderIds
+     * @param int $statusId
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function setOrderStatuses(array $orderIds, int $statusId): Response;
+
+    /**
      * @param int $receiptId
      * @param string $receiptNr
      * @param int $date
@@ -169,8 +181,23 @@ interface OrdersInterface
     public function addOrderInvoiceFile(int $invoiceId, string $file, string $externalInvoiceNumber): Response;
 
     /**
+     * @param int $receiptId
+     * @param string $file
+     * @param string $externalReceiptNumber
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function addOrderReceiptFile(int $receiptId, string $file, string $externalReceiptNumber): Response;
+
+    /**
      * @param int $invoiceId
      * @return \Baselinker\Api\Response\Response
      */
     public function getInvoiceFile(int $invoiceId): Response;
+
+    /**
+     * @param int $orderId
+     * @param int $triggerId
+     * @return \Baselinker\Api\Response\Response
+     */
+    public function runOrderMacroTrigger(int $orderId, int $triggerId): Response;
 }
