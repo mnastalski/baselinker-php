@@ -2,6 +2,7 @@
 
 namespace Baselinker;
 
+use Baselinker\Api\Request\BaselinkerConnectInterface;
 use Baselinker\Api\Request\CourierShipmentsInterface;
 use Baselinker\Api\Request\ExternalStoragesInterface;
 use Baselinker\Api\Request\OrderReturnsInterface;
@@ -34,4 +35,9 @@ interface BaselinkerInterface
      * @return \Baselinker\Api\Request\CourierShipmentsInterface
      */
     public function courierShipments(): CourierShipmentsInterface;
+
+    /**
+     * @return \Baselinker\Api\Request\BaselinkerConnectInterface
+     */
+    public function baselinkerConnect(): BaselinkerConnectInterface;
 }

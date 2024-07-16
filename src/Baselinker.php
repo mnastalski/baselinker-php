@@ -2,6 +2,8 @@
 
 namespace Baselinker;
 
+use Baselinker\Api\Request\BaselinkerConnect;
+use Baselinker\Api\Request\BaselinkerConnectInterface;
 use Baselinker\Api\Request\CourierShipments;
 use Baselinker\Api\Request\CourierShipmentsInterface;
 use Baselinker\Api\Request\ExternalStorages;
@@ -66,5 +68,13 @@ class Baselinker implements BaselinkerInterface
     public function courierShipments(): CourierShipmentsInterface
     {
         return new CourierShipments($this->config);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function baselinkerConnect(): BaselinkerConnectInterface
+    {
+        return new BaselinkerConnect($this->config);
     }
 }
