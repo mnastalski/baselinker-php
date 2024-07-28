@@ -14,6 +14,7 @@ use Baselinker\Api\Request\Orders;
 use Baselinker\Api\Request\OrdersInterface;
 use Baselinker\Api\Request\ProductCatalog;
 use Baselinker\Api\Request\ProductCatalogInterface;
+use GuzzleHttp\ClientInterface;
 
 class Baselinker implements BaselinkerInterface
 {
@@ -23,11 +24,18 @@ class Baselinker implements BaselinkerInterface
     private $config;
 
     /**
-     * @param array $parameters
+     * @var \GuzzleHttp\ClientInterface
      */
-    public function __construct(array $parameters)
+    private $client;
+
+    /**
+     * @param array $parameters
+     * @param \GuzzleHttp\ClientInterface|null $client
+     */
+    public function __construct(array $parameters, ?ClientInterface $client = null)
     {
         $this->config = new Config($parameters);
+        $this->client = $client;
     }
 
     /**

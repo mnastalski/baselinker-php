@@ -24,13 +24,19 @@ class Client
      * @var \GuzzleHttp\ClientInterface
      */
     private $client;
-
+	
     /**
      * @param \Baselinker\Config $config
+     * @param \GuzzleHttp\ClientInterface|null $client
      */
-    public function __construct(Config $config)
+    public function __construct(Config $config, ?ClientInterface $client = null)
     {
         $this->config = $config;
+        $this->client = $client ?: new GuzzleClient([
+            'base_uri' => $this->getApiUrl(),
+            RequestOptions::CONNECT_TIMEOUT => 10,
+            RequestOptions::TIMEOUT => 30,
+        ]);
     }
 
     /**
@@ -40,7 +46,7 @@ class Client
      */
     protected function post(string $function, array $parameters = []): ResponseInterface
     {
-        return $this->client()->post('connector.php', [
+        return $this->client->post('connector.php', [
             RequestOptions::HEADERS => [
                 'X-BLToken' => $this->config->getToken(),
             ],
@@ -49,22 +55,6 @@ class Client
                 'parameters' => json_encode($parameters),
             ],
         ]);
-    }
-
-    /**
-     * @return \GuzzleHttp\ClientInterface
-     */
-    protected function client(): ClientInterface
-    {
-        if (!$this->client) {
-            $this->client = new GuzzleClient([
-                'base_uri' => $this->getApiUrl(),
-                RequestOptions::CONNECT_TIMEOUT => 10,
-                RequestOptions::TIMEOUT => 30,
-            ]);
-        }
-
-        return $this->client;
     }
 
     /**

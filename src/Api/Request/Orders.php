@@ -4,9 +4,21 @@ namespace Baselinker\Api\Request;
 
 use Baselinker\Api\Client;
 use Baselinker\Api\Response\Response;
+use Baselinker\Config;
+use GuzzleHttp\ClientInterface;
 
 class Orders extends Client implements OrdersInterface
 {
+ 
+    /**
+     * @param \Baselinker\Config $config
+     * @param \GuzzleHttp\ClientInterface|null $client
+     */
+    public function __construct(Config $config, ?ClientInterface $client = null)
+    {
+        parent::__construct($config, $client);
+    }
+
     /**
      * @inheritDoc
      */
