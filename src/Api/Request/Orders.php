@@ -5,7 +5,7 @@ namespace Baselinker\Api\Request;
 use Baselinker\Api\Client;
 use Baselinker\Api\Response\Response;
 
-class Orders extends Client implements OrdersInterface
+class Orders extends Client
 {
     /**
      * @inheritDoc

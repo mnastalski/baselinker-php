@@ -5,6 +5,7 @@ namespace Baselinker\Tests;
 use Baselinker\Config;
 use InvalidArgumentException;
 use Iterator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ConfigTest extends TestCase

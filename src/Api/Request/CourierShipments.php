@@ -5,7 +5,7 @@ namespace Baselinker\Api\Request;
 use Baselinker\Api\Client;
 use Baselinker\Api\Response\Response;
 
-class CourierShipments extends Client implements CourierShipmentsInterface
+class CourierShipments extends Client
 {
     /**
      * @inheritDoc

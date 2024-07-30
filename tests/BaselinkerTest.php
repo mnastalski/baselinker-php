@@ -2,11 +2,11 @@
 
 namespace Baselinker\Tests;
 
-use Baselinker\Api\Request\CourierShipmentsInterface;
-use Baselinker\Api\Request\ExternalStoragesInterface;
-use Baselinker\Api\Request\OrderReturnsInterface;
-use Baselinker\Api\Request\OrdersInterface;
-use Baselinker\Api\Request\ProductCatalogInterface;
+use Baselinker\Api\Request\CourierShipments;
+use Baselinker\Api\Request\ExternalStorages;
+use Baselinker\Api\Request\OrderReturns;
+use Baselinker\Api\Request\Orders;
+use Baselinker\Api\Request\ProductCatalog;
 use Baselinker\Baselinker;
 use PHPUnit\Framework\TestCase;
 
@@ -20,7 +20,7 @@ class BaselinkerTest extends TestCase
 
         $productCatalog = $baselinker->productCatalog();
 
-        $this->assertInstanceOf(ProductCatalogInterface::class, $productCatalog);
+        $this->assertInstanceOf(ProductCatalog::class, $productCatalog);
     }
 
     public function testExternalStorages(): void
@@ -31,7 +31,7 @@ class BaselinkerTest extends TestCase
 
         $externalStorages = $baselinker->externalStorages();
 
-        $this->assertInstanceOf(ExternalStoragesInterface::class, $externalStorages);
+        $this->assertInstanceOf(ExternalStorages::class, $externalStorages);
     }
 
     public function testOrders(): void
@@ -42,7 +42,7 @@ class BaselinkerTest extends TestCase
 
         $orders = $baselinker->orders();
 
-        $this->assertInstanceOf(OrdersInterface::class, $orders);
+        $this->assertInstanceOf(Orders::class, $orders);
     }
 
     public function testOrderReturns(): void
@@ -53,7 +53,7 @@ class BaselinkerTest extends TestCase
 
         $orderReturns = $baselinker->orderReturns();
 
-        $this->assertInstanceOf(OrderReturnsInterface::class, $orderReturns);
+        $this->assertInstanceOf(OrderReturns::class, $orderReturns);
     }
 
     public function testCourierShipments(): void
@@ -64,6 +64,6 @@ class BaselinkerTest extends TestCase
 
         $courierShipments = $baselinker->courierShipments();
 
-        $this->assertInstanceOf(CourierShipmentsInterface::class, $courierShipments);
+        $this->assertInstanceOf(CourierShipments::class, $courierShipments);
     }
 }

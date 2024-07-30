@@ -5,7 +5,7 @@ namespace Baselinker\Api\Request;
 use Baselinker\Api\Client;
 use Baselinker\Api\Response\Response;
 
-class ExternalStorages extends Client implements ExternalStoragesInterface
+class ExternalStorages extends Client
 {
 
     /**

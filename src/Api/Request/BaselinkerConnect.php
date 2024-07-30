@@ -5,7 +5,7 @@ namespace Baselinker\Api\Request;
 use Baselinker\Api\Client;
 use Baselinker\Api\Response\Response;
 
-class BaselinkerConnect extends Client implements BaselinkerConnectInterface
+class BaselinkerConnect extends Client
 {
     /**
      * @inheritDoc
