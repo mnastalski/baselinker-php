@@ -13,9 +13,9 @@ class Baselinker
 {
     private Config $config;
 
-    public function __construct(array $parameters)
+    public function __construct(string $token)
     {
-        $this->config = new Config($parameters);
+        $this->config = new Config($token);
     }
 
     public function productCatalog(): ProductCatalog

@@ -14,9 +14,7 @@ class BaselinkerTest extends TestCase
 {
     public function testProductCatalog(): void
     {
-        $baselinker = new Baselinker([
-            'token' => 'foo',
-        ]);
+        $baselinker = new Baselinker('token');
 
         $productCatalog = $baselinker->productCatalog();
 
@@ -25,9 +23,7 @@ class BaselinkerTest extends TestCase
 
     public function testExternalStorages(): void
     {
-        $baselinker = new Baselinker([
-            'token' => 'foo',
-        ]);
+        $baselinker = new Baselinker('token');
 
         $externalStorages = $baselinker->externalStorages();
 
@@ -36,9 +32,7 @@ class BaselinkerTest extends TestCase
 
     public function testOrders(): void
     {
-        $baselinker = new Baselinker([
-            'token' => 'foo',
-        ]);
+        $baselinker = new Baselinker('token');
 
         $orders = $baselinker->orders();
 
@@ -47,9 +41,7 @@ class BaselinkerTest extends TestCase
 
     public function testOrderReturns(): void
     {
-        $baselinker = new Baselinker([
-            'token' => 'foo',
-        ]);
+        $baselinker = new Baselinker('token');
 
         $orderReturns = $baselinker->orderReturns();
 
@@ -58,9 +50,7 @@ class BaselinkerTest extends TestCase
 
     public function testCourierShipments(): void
     {
-        $baselinker = new Baselinker([
-            'token' => 'foo',
-        ]);
+        $baselinker = new Baselinker('token');
 
         $courierShipments = $baselinker->courierShipments();
 

@@ -22,7 +22,7 @@ class Client
     {
         return $this->client()->post('connector.php', [
             RequestOptions::HEADERS => [
-                'X-BLToken' => $this->config->getToken(),
+                'X-BLToken' => $this->config->token(),
             ],
             RequestOptions::FORM_PARAMS => [
                 'method' => $function,

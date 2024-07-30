@@ -19,9 +19,7 @@ composer require mnastalski/baselinker-php
 ```php
 use Baselinker\Baselinker;
 
-$baselinker = new Baselinker([
-    'token' => '...',
-]);
+$baselinker = new Baselinker('[API token]');
 ```
 
 ### Creating a request
