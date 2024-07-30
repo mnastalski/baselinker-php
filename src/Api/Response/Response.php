@@ -22,24 +22,26 @@ class Response
 
     public function contents(): string
     {
-        if (!$this->contents) {
-            $this->contents = $this->response->getBody()->getContents();
+        if ($this->contents) {
+            return $this->contents;
         }
 
-        return $this->contents;
+        return $this->contents = $this->response->getBody()->getContents();
     }
 
     public function toArray(): array
     {
-        if (!$this->array) {
-            $this->array = json_decode($this->contents(), true);
-
-            if (json_last_error() !== JSON_ERROR_NONE) {
-                $this->array = [];
-            }
+        if ($this->array) {
+            return $this->array;
         }
 
-        return $this->array;
+        $array = json_decode($this->contents(), true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            $array = [];
+        }
+
+        return $this->array = $array;
     }
 
     public function getParameter(string $parameter): mixed

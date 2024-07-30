@@ -33,15 +33,15 @@ class Client
 
     protected function client(): ClientInterface
     {
-        if (!$this->client) {
-            $this->client = new GuzzleClient([
-                'base_uri' => $this->getApiUrl(),
-                RequestOptions::CONNECT_TIMEOUT => 10,
-                RequestOptions::TIMEOUT => 30,
-            ]);
+        if ($this->client) {
+            return $this->client;
         }
 
-        return $this->client;
+        return $this->client = new GuzzleClient([
+            'base_uri' => $this->getApiUrl(),
+            RequestOptions::CONNECT_TIMEOUT => 10,
+            RequestOptions::TIMEOUT => 30,
+        ]);
     }
 
     private function getApiUrl(): string
