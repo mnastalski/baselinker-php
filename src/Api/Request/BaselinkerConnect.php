@@ -7,9 +7,6 @@ use Baselinker\Api\Response\Response;
 
 class BaselinkerConnect extends Client
 {
-    /**
-     * @inheritDoc
-     */
     public function getConnectIntegrations(): Response
     {
         return new Response(
@@ -17,9 +14,6 @@ class BaselinkerConnect extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getConnectIntegrationContractors(int $tokenId): Response
     {
         return new Response(
@@ -29,9 +23,6 @@ class BaselinkerConnect extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getConnectContractorCreditHistory(int $contractorId): Response
     {
         return new Response(
@@ -41,9 +32,6 @@ class BaselinkerConnect extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function addConnectContractorCredit(int $contractorId, float $amount, string $message): Response
     {
         return new Response(

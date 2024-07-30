@@ -6,23 +6,13 @@ use InvalidArgumentException;
 
 class Config
 {
-    /**
-     * @var string
-     */
-    private $token;
+    private ?string $token = null;
 
-    /**
-     * @param array $parameters
-     */
     public function __construct(array $parameters)
     {
         $this->set($parameters);
     }
 
-    /**
-     * @param array $parameters
-     * @return \Baselinker\Config
-     */
     public function set(array $parameters): self
     {
         if (empty($parameters['token'])) {
@@ -34,9 +24,6 @@ class Config
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getToken(): string
     {
         return $this->token;

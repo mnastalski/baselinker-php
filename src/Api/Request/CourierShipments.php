@@ -7,9 +7,6 @@ use Baselinker\Api\Response\Response;
 
 class CourierShipments extends Client
 {
-    /**
-     * @inheritDoc
-     */
     public function createPackage(int $orderId, string $courierCode, array $fields, array $packages, ?int $accountId = null): Response
     {
         return new Response(
@@ -23,9 +20,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function createPackageManual(int $orderId, string $courierCode, string $packageNumber, int $pickupDate, bool $returnShipment = false): Response
     {
         return new Response(
@@ -39,9 +33,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getCouriersList(): Response
     {
         return new Response(
@@ -49,9 +40,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getCourierFields(string $courierCode): Response
     {
         return new Response(
@@ -61,9 +49,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getCourierServices(string $courierCode, string $packageNumber, array $fields, array $packages, ?int $accountId = null): Response
     {
         return new Response(
@@ -77,9 +62,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getCourierAccounts(string $courierCode): Response
     {
         return new Response(
@@ -89,9 +71,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getLabel(string $courierCode, array $data): Response
     {
         $data['courier_code'] = $courierCode;
@@ -101,9 +80,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getProtocol(string $courierCode, array $data, int $accountId): Response
     {
         $data['courier_code'] = $courierCode;
@@ -114,9 +90,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderPackages(int $orderId): Response
     {
         return new Response(
@@ -126,9 +99,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getCourierPackagesStatusHistory(array $packageIds): Response
     {
         return new Response(
@@ -138,9 +108,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function deleteCourierPackage(string $courierCode, array $data, bool $forceDelete = false): Response
     {
         $data['courier_code'] = $courierCode;
@@ -151,9 +118,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function requestParcelPickup(string $courierCode, array $data, int $accountId, array $fields = []): Response
     {
         $data['courier_code'] = $courierCode;
@@ -165,9 +129,6 @@ class CourierShipments extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getRequestParcelPickupFields(string $courierCode): Response
     {
         return new Response(

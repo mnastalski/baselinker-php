@@ -7,9 +7,6 @@ use Baselinker\Api\Response\Response;
 
 class Orders extends Client
 {
-    /**
-     * @inheritDoc
-     */
     public function getJournalList(int $orderId, array $logsTypes, ?int $lastLogId = null): Response
     {
         return new Response(
@@ -21,9 +18,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function addOrder(array $data): Response
     {
         return new Response(
@@ -31,9 +25,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderSources(): Response
     {
         return new Response(
@@ -41,9 +32,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderExtraFields(): Response
     {
         return new Response(
@@ -51,9 +39,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrders(array $data): Response
     {
         return new Response(
@@ -61,9 +46,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderTransactionDetails(int $orderId): Response
     {
         return new Response(
@@ -73,9 +55,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderTransactionData(int $orderId): Response
     {
         return new Response(
@@ -85,9 +64,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrdersByEmail(string $email): Response
     {
         return new Response(
@@ -97,9 +73,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrdersByPhone(string $phone): Response
     {
         return new Response(
@@ -109,9 +82,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function addInvoice(int $orderId, int $seriesId, $vatRate = null): Response
     {
         return new Response(
@@ -123,9 +93,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getInvoices(array $data): Response
     {
         return new Response(
@@ -133,9 +100,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getSeries(): Response
     {
         return new Response(
@@ -143,9 +107,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderStatusList(): Response
     {
         return new Response(
@@ -153,9 +114,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderPaymentsHistory(int $orderId, bool $showFullHistory = false): Response
     {
         return new Response(
@@ -166,9 +124,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderPickPackHistory(int $orderId, ?int $actionType = null): Response
     {
         return new Response(
@@ -179,9 +134,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getNewReceipts(int $seriesId): Response
     {
         return new Response(
@@ -191,9 +143,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getReceipt(array $data): Response
     {
         return new Response(
@@ -201,9 +150,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderFields(array $data): Response
     {
         return new Response(
@@ -211,9 +157,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function addOrderProduct(array $data): Response
     {
         return new Response(
@@ -221,9 +164,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderProductFields(array $data): Response
     {
         return new Response(
@@ -231,9 +171,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function deleteOrderProduct(int $orderId, int $orderProductId): Response
     {
         return new Response(
@@ -244,9 +181,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderPayment(int $orderId, float $paymentDone, ?int $paymentDate = null, ?string $paymentComment = null, ?string $externalPaymentId = null): Response
     {
         return new Response(
@@ -260,9 +194,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderStatus(int $orderId, int $statusId): Response
     {
         return new Response(
@@ -273,9 +204,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderStatuses(array $orderIds, int $statusId): Response
     {
         return new Response(
@@ -286,9 +214,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderReceipt(int $receiptId, string $receiptNr, int $date, bool $printerError = false, ?string $printerName = null): Response
     {
         return new Response(
@@ -302,9 +227,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function addOrderInvoiceFile(int $invoiceId, string $file, string $externalInvoiceNumber): Response
     {
         return new Response(
@@ -316,9 +238,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function addOrderReceiptFile(int $receiptId, string $file, string $externalReceiptNumber): Response
     {
         return new Response(
@@ -330,9 +249,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getInvoiceFile(int $invoiceId): Response
     {
         return new Response(
@@ -342,9 +258,6 @@ class Orders extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function runOrderMacroTrigger(int $orderId, int $triggerId): Response
     {
         return new Response(

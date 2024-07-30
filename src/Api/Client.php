@@ -10,34 +10,14 @@ use Psr\Http\Message\ResponseInterface;
 
 class Client
 {
-    /**
-     * @var string
-     */
     public const URL_LIVE = 'https://api.baselinker.com/';
 
-    /**
-     * @var \Baselinker\Config
-     */
-    private $config;
+    private ?ClientInterface $client = null;
 
-    /**
-     * @var \GuzzleHttp\ClientInterface
-     */
-    private $client;
+    public function __construct(
+        private readonly Config $config,
+    ) {}
 
-    /**
-     * @param \Baselinker\Config $config
-     */
-    public function __construct(Config $config)
-    {
-        $this->config = $config;
-    }
-
-    /**
-     * @param string $function
-     * @param array $parameters
-     * @return \Psr\Http\Message\ResponseInterface
-     */
     protected function post(string $function, array $parameters = []): ResponseInterface
     {
         return $this->client()->post('connector.php', [
@@ -51,9 +31,6 @@ class Client
         ]);
     }
 
-    /**
-     * @return \GuzzleHttp\ClientInterface
-     */
     protected function client(): ClientInterface
     {
         if (!$this->client) {
@@ -67,9 +44,6 @@ class Client
         return $this->client;
     }
 
-    /**
-     * @return string
-     */
     private function getApiUrl(): string
     {
         return self::URL_LIVE;

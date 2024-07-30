@@ -7,10 +7,6 @@ use Baselinker\Api\Response\Response;
 
 class ExternalStorages extends Client
 {
-
-    /**
-     * @inheritDoc
-     */
     public function getExternalStoragesList(): Response
     {
         return new Response(
@@ -18,9 +14,6 @@ class ExternalStorages extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getExternalStorageCategories(string $storageId): Response
     {
         return new Response(
@@ -30,9 +23,6 @@ class ExternalStorages extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getExternalStorageProductsData(string $storageId, array $products): Response
     {
         return new Response(
@@ -43,9 +33,6 @@ class ExternalStorages extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getExternalStorageProductsList(string $storageId, array $filters = [], ?int $page = null): Response
     {
         $filters['storage_id'] = $storageId;
@@ -56,9 +43,6 @@ class ExternalStorages extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getExternalStorageProductsQuantity(string $storageId, ?int $page = null): Response
     {
         return new Response(
@@ -69,9 +53,6 @@ class ExternalStorages extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getExternalStorageProductsPrices(string $storageId, ?int $page = null): Response
     {
         return new Response(
@@ -82,9 +63,6 @@ class ExternalStorages extends Client
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function updateExternalStorageProductsQuantity(string $storageId, array $products): Response
     {
         return new Response(

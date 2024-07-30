@@ -6,29 +6,13 @@ use Psr\Http\Message\ResponseInterface;
 
 class Response
 {
-    /**
-     * @var \Psr\Http\Message\ResponseInterface
-     */
-    private $response;
+    private ?string $contents = null;
 
-    /**
-     * @var string
-     */
-    private $contents;
+    private ?array $array = null;
 
-    /**
-     * @var array
-     */
-    private $array;
-
-    /**
-     * @param \Psr\Http\Message\ResponseInterface $response
-     * @throws \Baselinker\Api\Response\BaselinkerException
-     */
-    public function __construct(ResponseInterface $response)
-    {
-        $this->response = $response;
-
+    public function __construct(
+        private readonly ResponseInterface $response,
+    ) {
         if ($this->hasError()) {
             $data = $this->toArray();
 
@@ -36,11 +20,6 @@ class Response
         }
     }
 
-    /**
-     * Return the response's body as a `string`.
-     *
-     * @return string
-     */
     public function contents(): string
     {
         if (!$this->contents) {
@@ -50,11 +29,6 @@ class Response
         return $this->contents;
     }
 
-    /**
-     * Return the response as an `array`.
-     *
-     * @return array
-     */
     public function toArray(): array
     {
         if (!$this->array) {
@@ -68,22 +42,11 @@ class Response
         return $this->array;
     }
 
-    /**
-     * Return the provided parameter's value from the response's JSON.
-     *
-     * @param string $parameter
-     * @return mixed
-     */
-    public function getParameter(string $parameter)
+    public function getParameter(string $parameter): mixed
     {
         return $this->toArray()[$parameter];
     }
 
-    /**
-     * Return `true` if response status isn't "success".
-     *
-     * @return bool
-     */
     private function hasError(): bool
     {
         $status = $this->getParameter('status');
