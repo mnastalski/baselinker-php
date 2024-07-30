@@ -19,9 +19,7 @@ class ConfigTest extends TestCase
         $this->assertEquals('foo', $config->getToken());
     }
 
-    /**
-     * @dataProvider invalidConfigDataProvider
-     */
+    #[DataProvider('invalidConfigDataProvider')]
     public function testSetWithInvalidTokenThrowsException(array $config): void
     {
         $this->expectException(InvalidArgumentException::class);
