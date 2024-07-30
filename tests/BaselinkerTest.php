@@ -2,6 +2,7 @@
 
 namespace Baselinker\Tests;
 
+use Baselinker\Api\Request\BaselinkerConnect;
 use Baselinker\Api\Request\CourierShipments;
 use Baselinker\Api\Request\ExternalStorages;
 use Baselinker\Api\Request\OrderReturns;
@@ -55,5 +56,14 @@ class BaselinkerTest extends TestCase
         $courierShipments = $baselinker->courierShipments();
 
         $this->assertInstanceOf(CourierShipments::class, $courierShipments);
+    }
+
+    public function testBaselinkerConnect(): void
+    {
+        $baselinker = new Baselinker('token');
+
+        $baselinkerConnect = $baselinker->baselinkerConnect();
+
+        $this->assertInstanceOf(BaselinkerConnect::class, $baselinkerConnect);
     }
 }
