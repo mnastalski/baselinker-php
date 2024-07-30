@@ -25,7 +25,7 @@ class Config
      */
     public function set(array $parameters): self
     {
-        if (!$parameters['token']) {
+        if (empty($parameters['token'])) {
             throw new InvalidArgumentException('Parameter "token" must be provided in the configuration.');
         }
 
