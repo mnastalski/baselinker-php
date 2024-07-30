@@ -1,6 +1,6 @@
 <?php
 
-namespace Baselinker\Tests\Unit;
+namespace Baselinker\Tests;
 
 use Baselinker\Config;
 use InvalidArgumentException;

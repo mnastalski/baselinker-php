@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Response;
+namespace Baselinker\Tests\Api\Response;
 
 use Baselinker\Api\Response\BaselinkerException;
 use PHPUnit\Framework\TestCase;

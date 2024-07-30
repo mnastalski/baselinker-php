@@ -1,6 +1,6 @@
 <?php
 
-namespace Baselinker\Tests\Unit;
+namespace Baselinker\Tests;
 
 use Baselinker\Api\Request\CourierShipmentsInterface;
 use Baselinker\Api\Request\ExternalStoragesInterface;
