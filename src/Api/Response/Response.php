@@ -14,9 +14,10 @@ class Response
         private readonly ResponseInterface $response,
     ) {
         if ($this->hasError()) {
-            $data = $this->toArray();
-
-            throw new BaselinkerException($data['error_message'], $data['error_code']);
+            throw new BaselinkerException(
+                $this->getParameter('error_message'),
+                $this->getParameter('error_code'),
+            );
         }
     }
 
