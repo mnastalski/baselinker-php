@@ -22,7 +22,7 @@ class Response
     private $array;
 
     /**
-     * @param \Psr\Http\Message\ResponseInterface $response
+     * @param  \Psr\Http\Message\ResponseInterface $response
      * @throws \Baselinker\Api\Response\BaselinkerException
      */
     public function __construct(ResponseInterface $response)
@@ -32,7 +32,10 @@ class Response
         if ($this->hasError()) {
             $data = $this->toArray();
 
-            throw new BaselinkerException($data['error_message'], $data['error_code']);
+            $errorMessage = $data['error_message'] ?? 'Unknown error';
+            $errorCode = $data['error_code'] ?? 0;
+
+            throw new BaselinkerException($errorMessage, $errorCode);
         }
     }
 
@@ -71,12 +74,12 @@ class Response
     /**
      * Return the provided parameter's value from the response's JSON.
      *
-     * @param string $parameter
+     * @param  string $parameter
      * @return mixed
      */
     public function getParameter(string $parameter)
     {
-        return $this->toArray()[$parameter];
+        return $this->toArray()[$parameter] ?? null;
     }
 
     /**
@@ -88,6 +91,7 @@ class Response
     {
         $status = $this->getParameter('status');
 
-        return strtolower($status) !== 'success';
+        return $status === null || strtolower($status) !== 'success';
     }
 }
+
