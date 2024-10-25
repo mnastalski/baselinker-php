@@ -3,9 +3,8 @@
 namespace Baselinker\Api\Response;
 
 use Exception;
-use Throwable;
 
-class BaselinkerException extends Exception implements Throwable
+class BaselinkerException extends Exception
 {
     public function __construct(
         private readonly string $responseMessage,
