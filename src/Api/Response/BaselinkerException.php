@@ -3,45 +3,33 @@
 namespace Baselinker\Api\Response;
 
 use Exception;
-use Throwable;
+use Psr\Http\Message\ResponseInterface;
 
-class BaselinkerException extends Exception implements Throwable
+class BaselinkerException extends Exception
 {
-    /**
-     * @var string
-     */
-    private $responseMessage;
+    use HasResponse;
 
-    /**
-     * @var string
-     */
-    private $responseCode;
+    private string $responseCode;
 
-    /**
-     * @param string $responseMessage
-     * @param string $responseCode
-     */
-    public function __construct(string $responseMessage, string $responseCode)
-    {
-        parent::__construct("[{$responseCode}] {$responseMessage}");
+    private string $responseMessage;
 
-        $this->responseMessage = $responseMessage;
-        $this->responseCode = $responseCode;
+    public function __construct(
+        ResponseInterface $response,
+    ) {
+        $this->response = $response;
+        $this->responseCode = $this->getParameter('error_code');
+        $this->responseMessage = $this->getParameter('error_message');
+
+        parent::__construct("[{$this->responseCode}] {$this->responseMessage}");
     }
 
-    /**
-     * @return string
-     */
-    public function responseMessage(): string
-    {
-        return $this->responseMessage;
-    }
-
-    /**
-     * @return string
-     */
     public function responseCode(): string
     {
         return $this->responseCode;
+    }
+
+    public function responseMessage(): string
+    {
+        return $this->responseMessage;
     }
 }

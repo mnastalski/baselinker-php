@@ -5,11 +5,8 @@ namespace Baselinker\Api\Request;
 use Baselinker\Api\Client;
 use Baselinker\Api\Response\Response;
 
-class OrderReturns extends Client implements OrderReturnsInterface
+class OrderReturns extends Client
 {
-    /**
-     * @inheritDoc
-     */
     public function getOrderReturnJournalList(int $lastLogId, array $logsTypes, ?int $returnId = null): Response
     {
         return new Response(
@@ -21,9 +18,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function addOrderReturn(array $data): Response
     {
         return new Response(
@@ -31,9 +25,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderReturnExtraFields(): Response
     {
         return new Response(
@@ -41,9 +32,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderReturns(array $data): Response
     {
         return new Response(
@@ -51,9 +39,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderReturnStatusList(): Response
     {
         return new Response(
@@ -61,9 +46,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderReturnPaymentsHistory(int $returnId, bool $showFullHistory = false): Response
     {
         return new Response(
@@ -74,9 +56,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderReturnFields(int $returnId, array $data): Response
     {
         $data['return_id'] = $returnId;
@@ -86,9 +65,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function addOrderReturnProduct(int $returnId, array $data): Response
     {
         $data['return_id'] = $returnId;
@@ -98,9 +74,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderReturnProductFields(int $returnId, int $orderReturnProductId, array $data): Response
     {
         $data['return_id'] = $returnId;
@@ -111,9 +84,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function deleteOrderReturnProduct(int $returnId, int $orderReturnProductId): Response
     {
         return new Response(
@@ -124,9 +94,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderReturnRefund(int $returnId, float $orderRefundDone, int $refundDate, string $refundComment, ?string $externalRefundId = null): Response
     {
         return new Response(
@@ -140,9 +107,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderReturnReasonsList(): Response
     {
         return new Response(
@@ -150,9 +114,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderReturnStatus(int $returnId, int $statusId): Response
     {
         return new Response(
@@ -163,9 +124,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function setOrderReturnStatuses(array $returnIds, int $statusId): Response
     {
         return new Response(
@@ -176,9 +134,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function runOrderReturnMacroTrigger(int $returnId, int $triggerId): Response
     {
         return new Response(
@@ -189,9 +144,6 @@ class OrderReturns extends Client implements OrderReturnsInterface
         );
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getOrderReturnProductStatuses(): Response
     {
         return new Response(

@@ -10,39 +10,19 @@ use Psr\Http\Message\ResponseInterface;
 
 class Client
 {
-    /**
-     * @var string
-     */
     public const URL_LIVE = 'https://api.baselinker.com/';
 
-    /**
-     * @var \Baselinker\Config
-     */
-    private $config;
+    private ?ClientInterface $client = null;
 
-    /**
-     * @var \GuzzleHttp\ClientInterface
-     */
-    private $client;
+    public function __construct(
+        private readonly Config $config,
+    ) {}
 
-    /**
-     * @param \Baselinker\Config $config
-     */
-    public function __construct(Config $config)
-    {
-        $this->config = $config;
-    }
-
-    /**
-     * @param string $function
-     * @param array $parameters
-     * @return \Psr\Http\Message\ResponseInterface
-     */
     protected function post(string $function, array $parameters = []): ResponseInterface
     {
         return $this->client()->post('connector.php', [
             RequestOptions::HEADERS => [
-                'X-BLToken' => $this->config->getToken(),
+                'X-BLToken' => $this->config->token(),
             ],
             RequestOptions::FORM_PARAMS => [
                 'method' => $function,
@@ -51,25 +31,19 @@ class Client
         ]);
     }
 
-    /**
-     * @return \GuzzleHttp\ClientInterface
-     */
     protected function client(): ClientInterface
     {
-        if (!$this->client) {
-            $this->client = new GuzzleClient([
-                'base_uri' => $this->getApiUrl(),
-                RequestOptions::CONNECT_TIMEOUT => 10,
-                RequestOptions::TIMEOUT => 30,
-            ]);
+        if ($this->client) {
+            return $this->client;
         }
 
-        return $this->client;
+        return $this->client = new GuzzleClient([
+            'base_uri' => $this->getApiUrl(),
+            RequestOptions::CONNECT_TIMEOUT => 10,
+            RequestOptions::TIMEOUT => 30,
+        ]);
     }
 
-    /**
-     * @return string
-     */
     private function getApiUrl(): string
     {
         return self::URL_LIVE;

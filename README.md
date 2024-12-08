@@ -4,7 +4,7 @@ PHP wrapper for [baselinker.com](https://baselinker.com/).
 
 ## Requirements
 
-- PHP >=7.1.3
+- PHP >=8.1
 
 ## Installation
 
@@ -19,9 +19,7 @@ composer require mnastalski/baselinker-php
 ```php
 use Baselinker\Baselinker;
 
-$baselinker = new Baselinker([
-    'token' => '...',
-]);
+$baselinker = new Baselinker('[API token]');
 ```
 
 ### Creating a request

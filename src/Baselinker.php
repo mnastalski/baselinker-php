@@ -3,77 +3,47 @@
 namespace Baselinker;
 
 use Baselinker\Api\Request\BaselinkerConnect;
-use Baselinker\Api\Request\BaselinkerConnectInterface;
 use Baselinker\Api\Request\CourierShipments;
-use Baselinker\Api\Request\CourierShipmentsInterface;
 use Baselinker\Api\Request\ExternalStorages;
-use Baselinker\Api\Request\ExternalStoragesInterface;
 use Baselinker\Api\Request\OrderReturns;
-use Baselinker\Api\Request\OrderReturnsInterface;
 use Baselinker\Api\Request\Orders;
-use Baselinker\Api\Request\OrdersInterface;
 use Baselinker\Api\Request\ProductCatalog;
-use Baselinker\Api\Request\ProductCatalogInterface;
 
-class Baselinker implements BaselinkerInterface
+class Baselinker
 {
-    /**
-     * @var \Baselinker\Config
-     */
-    private $config;
+    private Config $config;
 
-    /**
-     * @param array $parameters
-     */
-    public function __construct(array $parameters)
+    public function __construct(string $token)
     {
-        $this->config = new Config($parameters);
+        $this->config = new Config($token);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function productCatalog(): ProductCatalogInterface
+    public function productCatalog(): ProductCatalog
     {
         return new ProductCatalog($this->config);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function externalStorages(): ExternalStoragesInterface
+    public function externalStorages(): ExternalStorages
     {
         return new ExternalStorages($this->config);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function orders(): OrdersInterface
+    public function orders(): Orders
     {
         return new Orders($this->config);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function orderReturns(): OrderReturnsInterface
+    public function orderReturns(): OrderReturns
     {
         return new OrderReturns($this->config);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function courierShipments(): CourierShipmentsInterface
+    public function courierShipments(): CourierShipments
     {
         return new CourierShipments($this->config);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function baselinkerConnect(): BaselinkerConnectInterface
+    public function baselinkerConnect(): BaselinkerConnect
     {
         return new BaselinkerConnect($this->config);
     }
