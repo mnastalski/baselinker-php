@@ -233,13 +233,20 @@ class ProductCatalog extends Client
         );
     }
 
-    public function getInventoryProductsData(int $inventoryId, array $products = [], ?bool $includeErpUnits = null): Response
-    {
+    public function getInventoryProductsData(
+        int $inventoryId,
+        array $products = [],
+        ?bool $includeErpUnits = null,
+        ?bool $includeWmsUnits = null,
+        ?bool $includeAdditionalEans = null
+    ): Response {
         return new Response(
             $this->post('getInventoryProductsData', [
                 'inventory_id' => $inventoryId,
                 'products' => $products,
                 'include_erp_units' => $includeErpUnits,
+                'include_wms_units' => $includeWmsUnits,
+                'include_additional_eans' => $includeAdditionalEans,
             ])
         );
     }
