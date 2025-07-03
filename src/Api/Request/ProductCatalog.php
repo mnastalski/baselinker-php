@@ -202,7 +202,7 @@ class ProductCatalog extends Client
     public function getInventoryAvailableTextFieldKeys(int $inventoryId): Response
     {
         return new Response(
-            $this->post('getInventoryIntegrations', [
+            $this->post('getInventoryAvailableTextFieldKeys', [
                 'inventory_id' => $inventoryId,
             ])
         );
