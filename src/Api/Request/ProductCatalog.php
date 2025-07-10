@@ -148,6 +148,13 @@ class ProductCatalog extends Client
         );
     }
 
+    public function getInventoryTags(): Response
+    {
+        return new Response(
+            $this->post('getInventoryTags')
+        );
+    }
+
     public function addInventoryManufacturer(string $name): Response
     {
         return new Response(
