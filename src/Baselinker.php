@@ -8,6 +8,7 @@ use Baselinker\Api\Request\ExternalStorages;
 use Baselinker\Api\Request\OrderReturns;
 use Baselinker\Api\Request\Orders;
 use Baselinker\Api\Request\ProductCatalog;
+use Baselinker\Api\Request\WarehouseDocuments;
 
 class Baselinker
 {
@@ -21,6 +22,11 @@ class Baselinker
     public function productCatalog(): ProductCatalog
     {
         return new ProductCatalog($this->config);
+    }
+
+    public function warehouseDocuments(): WarehouseDocuments
+    {
+        return new WarehouseDocuments($this->config);
     }
 
     public function externalStorages(): ExternalStorages
