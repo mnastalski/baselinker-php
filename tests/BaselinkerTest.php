@@ -8,6 +8,7 @@ use Baselinker\Api\Request\ExternalStorages;
 use Baselinker\Api\Request\OrderReturns;
 use Baselinker\Api\Request\Orders;
 use Baselinker\Api\Request\ProductCatalog;
+use Baselinker\Api\Request\WarehouseDocuments;
 use Baselinker\Baselinker;
 use PHPUnit\Framework\TestCase;
 
@@ -20,6 +21,15 @@ class BaselinkerTest extends TestCase
         $productCatalog = $baselinker->productCatalog();
 
         $this->assertInstanceOf(ProductCatalog::class, $productCatalog);
+    }
+
+    public function testWarehouseDocuments(): void
+    {
+        $baselinker = new Baselinker('token');
+
+        $warehouseDocuments = $baselinker->warehouseDocuments();
+
+        $this->assertInstanceOf(WarehouseDocuments::class, $warehouseDocuments);
     }
 
     public function testExternalStorages(): void
