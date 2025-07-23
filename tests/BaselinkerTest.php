@@ -9,6 +9,7 @@ use Baselinker\Api\Request\OrderReturns;
 use Baselinker\Api\Request\Orders;
 use Baselinker\Api\Request\ProductCatalog;
 use Baselinker\Api\Request\WarehouseDocuments;
+use Baselinker\Api\Request\WarehousePurchaseOrders;
 use Baselinker\Baselinker;
 use PHPUnit\Framework\TestCase;
 
@@ -30,6 +31,15 @@ class BaselinkerTest extends TestCase
         $warehouseDocuments = $baselinker->warehouseDocuments();
 
         $this->assertInstanceOf(WarehouseDocuments::class, $warehouseDocuments);
+    }
+
+    public function testWarehousePurchaseOrders(): void
+    {
+        $baselinker = new Baselinker('token');
+
+        $warehousePurchaseOrders = $baselinker->warehousePurchaseOrders();
+
+        $this->assertInstanceOf(WarehousePurchaseOrders::class, $warehousePurchaseOrders);
     }
 
     public function testExternalStorages(): void
