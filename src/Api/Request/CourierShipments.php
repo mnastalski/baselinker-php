@@ -49,12 +49,12 @@ class CourierShipments extends Client
         );
     }
 
-    public function getCourierServices(string $courierCode, string $packageNumber, array $fields, array $packages, ?int $accountId = null): Response
+    public function getCourierServices(string $courierCode, int $orderId, array $fields, array $packages, ?int $accountId = null): Response
     {
         return new Response(
             $this->post('getCourierServices', [
                 'courier_code' => $courierCode,
-                'package_number' => $packageNumber,
+                'order_id' => $orderId,
                 'fields' => $fields,
                 'packages' => $packages,
                 'account_id' => $accountId,
