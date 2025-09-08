@@ -1,7 +1,9 @@
 {
     "name": "mnastalski/baselinker-php",
-    "description": "BaseLinker PHP library",
+    "description": "Base.com (formerly BaseLinker) PHP library",
     "keywords": [
+        "base",
+        "basecom",
         "baselinker"
     ],
     "type": "library",

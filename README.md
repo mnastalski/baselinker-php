@@ -1,6 +1,6 @@
-# BaseLinker PHP library
+# Base.com PHP library
 
-PHP wrapper for [baselinker.com](https://baselinker.com/).
+PHP wrapper for [base.com](https://base.com/) (formerly [BaseLinker](https://baselinker.com/)).
 
 ## Requirements
 
