@@ -5,6 +5,7 @@ namespace Baselinker;
 use Baselinker\Api\Request\BaselinkerConnect;
 use Baselinker\Api\Request\CourierShipments;
 use Baselinker\Api\Request\ExternalStorages;
+use Baselinker\Api\Request\InventoryPayers;
 use Baselinker\Api\Request\OrderReturns;
 use Baselinker\Api\Request\Orders;
 use Baselinker\Api\Request\ProductCatalog;
@@ -33,6 +34,11 @@ class Baselinker
     public function warehousePurchaseOrders(): WarehousePurchaseOrders
     {
         return new WarehousePurchaseOrders($this->config);
+    }
+
+    public function inventoryPayers(): InventoryPayers
+    {
+        return new InventoryPayers($this->config);
     }
 
     public function externalStorages(): ExternalStorages
