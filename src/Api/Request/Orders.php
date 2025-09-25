@@ -249,6 +249,17 @@ class Orders extends Client
         );
     }
 
+    public function addOrderBySplit(int $orderId, array $itemsToSplit, ?float $deliveryCostToSplit = null): Response
+    {
+        return new Response(
+            $this->post('addOrderBySplit', [
+                'order_id' => $orderId,
+                'items_to_split' => $itemsToSplit,
+                'delivery_cost_to_split' => $deliveryCostToSplit,
+            ]),
+        );
+    }
+
     public function getInvoiceFile(int $invoiceId): Response
     {
         return new Response(
