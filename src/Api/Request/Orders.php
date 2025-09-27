@@ -3,6 +3,7 @@
 namespace Baselinker\Api\Request;
 
 use Baselinker\Api\Client;
+use Baselinker\Api\Enum\OrderMergeMode;
 use Baselinker\Api\Response\Response;
 
 class Orders extends Client
@@ -256,6 +257,22 @@ class Orders extends Client
                 'order_id' => $orderId,
                 'items_to_split' => $itemsToSplit,
                 'delivery_cost_to_split' => $deliveryCostToSplit,
+            ]),
+        );
+    }
+
+    public function setOrdersMerge(
+        int $mainOrderId,
+        array $orderIdsToMerge,
+        OrderMergeMode $mergeMode = OrderMergeMode::TechnicalMerge,
+        bool $sumDeliveryCosts = false
+    ): Response {
+        return new Response(
+            $this->post('setOrdersMerge', [
+                'main_order_id' => $mainOrderId,
+                'order_ids_to_merge' => $orderIdsToMerge,
+                'merge_mode' => $mergeMode->value,
+                'sum_delivery_costs' => $sumDeliveryCosts,
             ]),
         );
     }
