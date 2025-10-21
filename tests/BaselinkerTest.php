@@ -5,6 +5,7 @@ namespace Baselinker\Tests;
 use Baselinker\Api\Request\BaselinkerConnect;
 use Baselinker\Api\Request\CourierShipments;
 use Baselinker\Api\Request\ExternalStorages;
+use Baselinker\Api\Request\InventoryDocuments;
 use Baselinker\Api\Request\InventoryPayers;
 use Baselinker\Api\Request\OrderReturns;
 use Baselinker\Api\Request\Orders;
@@ -41,6 +42,15 @@ class BaselinkerTest extends TestCase
         $warehousePurchaseOrders = $baselinker->warehousePurchaseOrders();
 
         $this->assertInstanceOf(WarehousePurchaseOrders::class, $warehousePurchaseOrders);
+    }
+
+    public function testInventoryDocuments(): void
+    {
+        $baselinker = new Baselinker('token');
+
+        $inventoryDocuments = $baselinker->inventoryDocuments();
+
+        $this->assertInstanceOf(InventoryDocuments::class, $inventoryDocuments);
     }
 
     public function testInventoryPayers(): void

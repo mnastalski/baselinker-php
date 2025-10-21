@@ -5,6 +5,7 @@ namespace Baselinker;
 use Baselinker\Api\Request\BaselinkerConnect;
 use Baselinker\Api\Request\CourierShipments;
 use Baselinker\Api\Request\ExternalStorages;
+use Baselinker\Api\Request\InventoryDocuments;
 use Baselinker\Api\Request\InventoryPayers;
 use Baselinker\Api\Request\OrderReturns;
 use Baselinker\Api\Request\Orders;
@@ -24,6 +25,11 @@ class Baselinker
     public function productCatalog(): ProductCatalog
     {
         return new ProductCatalog($this->config);
+    }
+
+    public function inventoryDocuments(): InventoryDocuments
+    {
+        return new InventoryDocuments($this->config);
     }
 
     public function warehouseDocuments(): WarehouseDocuments
