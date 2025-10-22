@@ -7,6 +7,7 @@ use Baselinker\Api\Request\CourierShipments;
 use Baselinker\Api\Request\ExternalStorages;
 use Baselinker\Api\Request\InventoryDocuments;
 use Baselinker\Api\Request\InventoryPayers;
+use Baselinker\Api\Request\InventoryPurchaseOrders;
 use Baselinker\Api\Request\OrderReturns;
 use Baselinker\Api\Request\Orders;
 use Baselinker\Api\Request\ProductCatalog;
@@ -51,6 +52,15 @@ class BaselinkerTest extends TestCase
         $inventoryDocuments = $baselinker->inventoryDocuments();
 
         $this->assertInstanceOf(InventoryDocuments::class, $inventoryDocuments);
+    }
+
+    public function testInventoryPurchaseOrders(): void
+    {
+        $baselinker = new Baselinker('token');
+
+        $inventoryPurchaseOrders = $baselinker->inventoryPurchaseOrders();
+
+        $this->assertInstanceOf(InventoryPurchaseOrders::class, $inventoryPurchaseOrders);
     }
 
     public function testInventoryPayers(): void
