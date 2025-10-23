@@ -8,6 +8,7 @@ use Baselinker\Api\Request\ExternalStorages;
 use Baselinker\Api\Request\InventoryDocuments;
 use Baselinker\Api\Request\InventoryPayers;
 use Baselinker\Api\Request\InventoryPurchaseOrders;
+use Baselinker\Api\Request\InventorySuppliers;
 use Baselinker\Api\Request\OrderReturns;
 use Baselinker\Api\Request\Orders;
 use Baselinker\Api\Request\ProductCatalog;
@@ -36,6 +37,11 @@ class Baselinker
     public function inventoryPurchaseOrders(): InventoryPurchaseOrders
     {
         return new InventoryPurchaseOrders($this->config);
+    }
+
+    public function inventorySuppliers(): InventorySuppliers
+    {
+        return new InventorySuppliers($this->config);
     }
 
     public function warehouseDocuments(): WarehouseDocuments
