@@ -28,24 +28,6 @@ class BaselinkerTest extends TestCase
         $this->assertInstanceOf(ProductCatalog::class, $productCatalog);
     }
 
-    public function testWarehouseDocuments(): void
-    {
-        $baselinker = new Baselinker('token');
-
-        $warehouseDocuments = $baselinker->warehouseDocuments();
-
-        $this->assertInstanceOf(WarehouseDocuments::class, $warehouseDocuments);
-    }
-
-    public function testWarehousePurchaseOrders(): void
-    {
-        $baselinker = new Baselinker('token');
-
-        $warehousePurchaseOrders = $baselinker->warehousePurchaseOrders();
-
-        $this->assertInstanceOf(WarehousePurchaseOrders::class, $warehousePurchaseOrders);
-    }
-
     public function testInventoryDocuments(): void
     {
         $baselinker = new Baselinker('token');
@@ -125,5 +107,23 @@ class BaselinkerTest extends TestCase
         $baselinkerConnect = $baselinker->baselinkerConnect();
 
         $this->assertInstanceOf(BaselinkerConnect::class, $baselinkerConnect);
+    }
+
+    public function testWarehouseDocuments(): void
+    {
+        $baselinker = new Baselinker('token');
+
+        $warehouseDocuments = $baselinker->warehouseDocuments();
+
+        $this->assertInstanceOf(WarehouseDocuments::class, $warehouseDocuments);
+    }
+
+    public function testWarehousePurchaseOrders(): void
+    {
+        $baselinker = new Baselinker('token');
+
+        $warehousePurchaseOrders = $baselinker->warehousePurchaseOrders();
+
+        $this->assertInstanceOf(WarehousePurchaseOrders::class, $warehousePurchaseOrders);
     }
 }
