@@ -44,16 +44,6 @@ class Baselinker
         return new InventorySuppliers($this->config);
     }
 
-    public function warehouseDocuments(): WarehouseDocuments
-    {
-        return new WarehouseDocuments($this->config);
-    }
-
-    public function warehousePurchaseOrders(): WarehousePurchaseOrders
-    {
-        return new WarehousePurchaseOrders($this->config);
-    }
-
     public function inventoryPayers(): InventoryPayers
     {
         return new InventoryPayers($this->config);
@@ -82,5 +72,21 @@ class Baselinker
     public function baselinkerConnect(): BaselinkerConnect
     {
         return new BaselinkerConnect($this->config);
+    }
+
+    /**
+     * @deprecated Use Baselinker::inventoryDocuments() instead
+     */
+    public function warehouseDocuments(): WarehouseDocuments
+    {
+        return new WarehouseDocuments($this->config);
+    }
+
+    /**
+     * @deprecated Use Baselinker::inventoryPurchaseOrders() instead
+     */
+    public function warehousePurchaseOrders(): WarehousePurchaseOrders
+    {
+        return new WarehousePurchaseOrders($this->config);
     }
 }

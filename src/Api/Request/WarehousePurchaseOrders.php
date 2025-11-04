@@ -5,6 +5,9 @@ namespace Baselinker\Api\Request;
 use Baselinker\Api\Client;
 use Baselinker\Api\Response\Response;
 
+/**
+ * @deprecated Use InventoryPurchaseOrders::class instead
+ */
 class WarehousePurchaseOrders extends Client
 {
     public function getInventoryPurchaseOrders(array $data = []): Response
